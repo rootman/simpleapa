@@ -67,4 +67,4 @@ $apa = App::make('SimpleAPA');
 return Cache::remember('asin_B000OG4YNE', 60*24, function() use ($apa) {
     return $apa->getLowestPrice('B000OG4YNE');
 });
-```;
+```

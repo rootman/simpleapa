@@ -10,7 +10,8 @@ use Config;
  * Class SimpleAPA
  * @package Rootman\Simpleapa
  */
-class SimpleAPA {
+class SimpleAPA
+{
 
     /**
      * @var ApaiIO

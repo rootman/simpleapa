@@ -13,6 +13,9 @@
         "illuminate/support": "~5.0",
         "exeu/apai-io": "~1.8"
     },
+    "require-dev": {
+        "mockery/mockery": "dev-master"
+    },
     "autoload": {
         "psr-0": {
             "Rootman\\Simpleapa": "src/"

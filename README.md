@@ -55,7 +55,16 @@ $apa->bestPrice('B004BM3M6W');
 ### Laravel
 
 ```php
-$apa = App::make('SimpleAPA');
+$apa = App::make('SimpleAPA'); // don't actually use it like that, better inject it
 
 $apa->bestPrice('B004BM3M6W');
 ```
+
+#### Cached example
+```php
+$apa = App::make('SimpleAPA');
+
+return Cache::remember('asin_B000OG4YNE', 60*24, function() use ($apa) {
+    return $apa->getLowestPrice('B000OG4YNE');
+});
+```;

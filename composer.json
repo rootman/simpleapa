@@ -1,0 +1,22 @@
+{
+    "name": "rootman/simpleapa",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Rottmann",
+            "email": "tim.rottmann@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "~5.0",
+        "exeu/apai-io": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rootman\\Simpleapa": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

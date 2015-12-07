@@ -22,6 +22,8 @@ $ composer install
 
 ### Laravel specific
 
+Register the Serviceprovider.
+
 Publish the config:
 
 ``` bash

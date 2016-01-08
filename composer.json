@@ -6,7 +6,11 @@
         {
             "name": "Tim Rottmann",
             "email": "tim.rottmann@gmail.com"
-        }
+        },
+		{
+			"name": "Yeong-Cheol Jang",
+			"email": "yeongi41@gmail.com"
+		}
     ],
     "require": {
         "php": ">=5.4.0",

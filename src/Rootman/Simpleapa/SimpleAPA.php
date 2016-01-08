@@ -63,5 +63,27 @@ class SimpleAPA
 
         return $this->apaiIO->runOperation($lookup);
     }
+    /**
+     * @param $asin
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function runImageLookup($asin)
+    {
+        $lookup = new Lookup();
+        $lookup->setItemId($asin);
+        $lookup->setResponseGroup(array('Images'));
+        return $this->apaiIO->runOperation($lookup);
+    }
+
+    /**
+     * @param $asin
+     * @return null
+     */
+    public function allImages($asin)
+    {
+        $response = $this->runImageLookup($asin);
+        return isset($response['Items']['Item']['ImageSets']['ImageSet']) ? $response['Items']['Item']['ImageSets']['ImageSet'] : null;
+    }
 
 }

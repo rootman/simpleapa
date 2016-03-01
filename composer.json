@@ -7,14 +7,14 @@
             "name": "Tim Rottmann",
             "email": "tim.rottmann@gmail.com"
         },
-		{
-			"name": "Yeong-Cheol Jang",
-			"email": "yeongi41@gmail.com"
-		}
+	{
+		"name": "Yeong-Cheol Jang",
+		"email": "yeongi41@gmail.com"
+	}
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "~5.0",
+        "illuminate/support": "~5.2",
         "exeu/apai-io": "~1.8"
     },
     "require-dev": {

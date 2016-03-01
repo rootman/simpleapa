@@ -27,7 +27,7 @@ class SimpleapaServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        $this->app->bindShared('SimpleAPA', function() {
+        $this->app->singleton('SimpleAPA', function() {
             $conf = new GenericConfiguration();
             $conf
                 ->setCountry('de')

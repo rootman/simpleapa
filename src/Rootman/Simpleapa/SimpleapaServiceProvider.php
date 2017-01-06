@@ -5,7 +5,6 @@ namespace Rootman\Simpleapa;
 use ApaiIO\ApaiIO;
 use Illuminate\Support\ServiceProvider;
 use ApaiIO\Configuration\GenericConfiguration;
-use Config;
 
 /**
  * Class SimpleapaServiceProvider
@@ -27,13 +26,13 @@ class SimpleapaServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        $this->app->singleton('SimpleAPA', function() {
+        $this->app->singleton(SimpleAPA::class, function() {
             $conf = new GenericConfiguration();
             $conf
                 ->setCountry('de')
-                ->setAccessKey(Config::get('simpleapa.AccessKey'))
-                ->setSecretKey(Config::get('simpleapa.SecretKey'))
-                ->setAssociateTag(Config::get('simpleapa.AssociateTag'))
+                ->setAccessKey(config('simpleapa.AccessKey'))
+                ->setSecretKey(config('simpleapa.SecretKey'))
+                ->setAssociateTag(config('simpleapa.AssociateTag'))
                 ->setRequest('\ApaiIO\Request\Soap\Request')
                 ->setResponseTransformer('\ApaiIO\ResponseTransformer\ObjectToArray');
 

@@ -57,16 +57,61 @@ $apa->bestPrice('B004BM3M6W');
 ### Laravel
 
 ```php
-$apa = App::make('SimpleAPA'); // don't actually use it like that, better inject it
+$apa = App::make(\Rootman\Simpleapa\SimpleAPA); // don't actually use it like that, better inject it
 
 $apa->bestPrice('B004BM3M6W');
 ```
 
-#### Cached example
+#### Sample helper file
 ```php
-$apa = App::make('SimpleAPA');
+<?php
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
+use Rootman\Simpleapa\SimpleAPA;
 
-return Cache::remember('asin_B000OG4YNE', 60*24, function() use ($apa) {
-    return $apa->bestPrice('B000OG4YNE');
-});
+/**
+ * @param $asin
+ * @return mixed
+ */
+function bestPrice($asin)
+{
+    return Cache::remember('asin_' . $asin, 60 * 24, function () use ($asin) {
+        return App::make(SimpleAPA::class)->bestPrice($asin);
+    });
+}
+
+/**
+ * @param $price
+ * @return string
+ */
+function formatPrice($price)
+{
+    return number_format($price, 2, ',', '.');
+}
+
+/**
+ * @return string
+ */
+function getTag()
+{
+    return env('ASSOCIATE_TAG');
+}
+
+/**
+ * @param $asin
+ * @return string
+ */
+function amazonUrl($asin)
+{
+    return sprintf('http://www.amazon.de/dp/%s/?tag=%s', $asin, getTag());
+}
+
+/**
+ * @param $asin
+ * @return string
+ */
+function amazonRatingUrl($asin)
+{
+    return sprintf('http://www.amazon.de/product-reviews/%s/?tag=%s', $asin, getTag());
+}
 ```
